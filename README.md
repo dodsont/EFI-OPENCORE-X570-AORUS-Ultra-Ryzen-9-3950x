@@ -61,7 +61,7 @@ _Support for 15h (FX series), 16h (A series) and Threadripper CPUs is not covere
 
 <sup>3</sup> Lexa series GPUs are not supported. Older than 7000 series are supported up to High Sierra (10.13), their support is not covered here.
 
-For **AMD Navi 10 Series GPUs (RX 5500, RX 5600, RX 5700)** you need to add `agdpmod=pikera` to `boot-args` to fix the black screen issue.
+For **AMD Navi Series GPUs (RX 5500, RX 5600, RX 5700, RX, 6400, RX 6500, RX 6600, RX 6700, RX 6800, RX 6900)** you need to add `agdpmod=pikera` to `boot-args` to fix the black screen issue.
 
 [PAT Patch made by Shaneee](#PAT-Patch) is used by default. It improves GPU performance but it has a few caveats. Audio passed by HDMI or DisplayPort won't work or will be unstable. It also **may not** work with Nvidia GPUs.
 
@@ -117,6 +117,7 @@ SmallTree kext does not work on Monterey for now. You can try [AppleIGB kext](ht
 
 ### WiFi and Bluetooth
 Only Apple Airport and Fenvi cards work out of the box. [Here](https://dortania.github.io/Wireless-Buyers-Guide/) you can list of all supported cards and needed kexts for them.
+Intel Wifi works with [itlwm](https://github.com/OpenIntelWireless/itlwm/).
 
 Rembember that AirDrop, Handoff, etc. works only on cards with Broadcom chip.
 
@@ -138,7 +139,6 @@ Rembember that AirDrop, Handoff, etc. works only on cards with Broadcom chip.
       - B8 **00** 0000 0000 -> B8 **10** 0000 0000
       - BA **00** 0000 0000 -> BA **10** 0000 0000
       - BA **00** 0000 0090 -> BA **10** 0000 0090
-      - BA **00** 0000 0090 -> BA **10** 0000 00
 
 | **Physical CPU cores** | **Hex value** |
 | ---------------------- | ------------- |
