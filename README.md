@@ -7,13 +7,13 @@
 | CPU              | AMD Ryzen 9 3950x @ 3.5GHz                 |
 | Motherboard      | Gigabyte X570 AORUS Ultra (rev. 1.2)       |
 | RAM              | 64GB (2 x 32GB) G. Skill @ 2600MHz         |
-| GPU              | PowerColor Hellhound RX 6600 8GB           |
+| GPU              | MSI RX 480 4GB                             |
 | Case             | NZXT - H510i RGB Lighting                  |
 | Liquid Cooling   | NZXT Kraken Z63                            |
 | WiFi & Bluetooth | Intel Onboard                              |
-| OS Disk (NVMe)   | Samsung 980 PRO 1TB (PCIe 4.0)             |
+| OS Disk (NVMe)   | WD Black SN770 NVMe 1TB (PCIe 4.0)         |
 
-**macOS version**: 12.6.6 (Monterey)\
+**macOS version**: 13.4 (Ventura)\
 **OpenCore version**: 0.9.2
 
 ## Table of contents
@@ -32,17 +32,20 @@
 
 ## Software Compatibility
 
+- Ventura (13.x)
 - Monterey (12.x)
 - Big Sur (11.x)
 - Catalina (10.15.x)
 - Mojave (10.14.x)
 - High Sierra (10.13.x)
 
+There were some reports about issues that occur while using MSI motherboards on Monterey Beta 3. The only possible solution to this problem as of right now is to downgrade to Monterey Beta 2 and wait for a confirmed workaround.
+
 ## Hardware Compatibility
 
 ### Central Processing Unit (CPU)
 
-This EFI is compatible with all Ryzen Processors
+This EFI is compatible with all Ryzen and Athlon 2xxGE processors with
 [macOS-compatible peripherals](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/).
 
 _Support for 15h (FX series), 16h (A series) and Threadripper CPUs is not covered here._
@@ -61,7 +64,7 @@ _Support for 15h (FX series), 16h (A series) and Threadripper CPUs is not covere
 
 <sup>3</sup> Lexa series GPUs are not supported. Older than 7000 series are supported up to High Sierra (10.13), their support is not covered here.
 
-For **AMD Navi Series GPUs (RX 5500, RX 5600, RX 5700, RX, 6400, RX 6500, RX 6600, RX 6700, RX 6800, RX 6900)** you need to add `agdpmod=pikera` to `boot-args` to fix the black screen issue.
+For **AMD Navi 10 Series GPUs (RX 5500, RX 5600, RX 5700)** you need to add `agdpmod=pikera` to `boot-args` to fix the black screen issue.
 
 [PAT Patch made by Shaneee](#PAT-Patch) is used by default. It improves GPU performance but it has a few caveats. Audio passed by HDMI or DisplayPort won't work or will be unstable. It also **may not** work with Nvidia GPUs.
 
@@ -117,7 +120,6 @@ SmallTree kext does not work on Monterey for now. You can try [AppleIGB kext](ht
 
 ### WiFi and Bluetooth
 Only Apple Airport and Fenvi cards work out of the box. [Here](https://dortania.github.io/Wireless-Buyers-Guide/) you can list of all supported cards and needed kexts for them.
-Intel Wifi works with [itlwm](https://github.com/OpenIntelWireless/itlwm/).
 
 Rembember that AirDrop, Handoff, etc. works only on cards with Broadcom chip.
 
@@ -135,10 +137,10 @@ Rembember that AirDrop, Handoff, etc. works only on cards with Broadcom chip.
   - Find three `algrey - Force cpuid_cores_per_package` patches under `Kernel -> Patch` in your config.
   - Modify these patches for your CPU physical cores. Change **first pair** of `00` in `Replace` of these patches to `Hex value` from below table.
 
-    - e. g. for Ryzen 9 3950x with 16 Cores three modified patches should look like:
-      - B8 **00** 0000 0000 -> B8 **10** 0000 0000
-      - BA **00** 0000 0000 -> BA **10** 0000 0000
-      - BA **00** 0000 0090 -> BA **10** 0000 0090
+    - e. g. for Ryzen 7 1700 with 8 Cores three modified patches should look like:
+      - B8 **00** 0000 0000 -> B8 **08** 0000 0000
+      - BA **00** 0000 0000 -> BA **08** 0000 0000
+      - BA **00** 0000 0090 -> BA **08** 0000 0090
 
 | **Physical CPU cores** | **Hex value** |
 | ---------------------- | ------------- |
