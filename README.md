@@ -11,7 +11,7 @@
 | Case             | NZXT - H510i RGB Lighting                  |
 | Liquid Cooling   | NZXT Kraken Z63                            |
 | WiFi & Bluetooth | Intel Onboard                              |
-| OS Disk (NVMe)   | Samsung 980 PRO 1TB (PCIe 4.0)             |
+| OS Disk (NVMe)   | WD Black SN770 NVMe 1TB (PCIe 4.0)         |
 
 **macOS version**: 13.4 (Ventura)\
 **OpenCore version**: 0.9.2
