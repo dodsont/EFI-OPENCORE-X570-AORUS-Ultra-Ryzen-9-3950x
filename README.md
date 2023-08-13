@@ -13,8 +13,8 @@
 | WiFi & Bluetooth | Intel Onboard                              |
 | OS Disk (NVMe)   | WD Black SN770 NVMe 1TB (PCIe 4.0)         |
 
-**macOS version**: 13.4 (Ventura)\
-**OpenCore version**: 0.9.2
+**macOS version**: 13.5 (Ventura)\
+**OpenCore version**: 0.9.4
 
 ## Table of contents
 
